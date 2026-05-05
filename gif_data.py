@@ -1,4 +1,4 @@
-import imageio
+from PIL import Image
 import os
 from functools import cmp_to_key
 
@@ -12,9 +12,9 @@ if __name__ == "__main__":
     result_path = "./PLOTS"
     filenames = [os.path.join(result_path, path) for path in os.listdir(result_path)]
     filenames.sort(key=cmp_to_key(c_comp))
-    images = []
+    images = [ Image.open(path) for path in filenames]
 
-    with imageio.get_writer('./GIFS/heat2D_0.gif', mode='I', fps=30) as writer:
-        for filename in filenames:
-            image = imageio.imread(filename)
-            writer.append_data(image)
+    images[0].save("./GIFS/heat_2D.gif", save_all=True, append_images=images[1:], duration=100, loop=0)
+
+
+    
