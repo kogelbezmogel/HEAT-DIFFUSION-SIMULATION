@@ -13,7 +13,7 @@ if __name__ == "__main__":
     for path in files: 
         
         data = pd.read_csv(os.path.join(base_path, path), delimiter=";", header=None)
-        plt.imshow(data, cmap="plasma", interpolation="nearest", vmin=0, vmax=100)
+        plt.imshow(data, cmap="hot", interpolation="sinc", vmin=0, vmax=100)
         plt.savefig(os.path.join(result_path, path.split(".")[0] + ".png"))
         plt.close()
 

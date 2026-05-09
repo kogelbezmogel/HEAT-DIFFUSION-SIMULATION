@@ -14,7 +14,7 @@ if __name__ == "__main__":
     filenames.sort(key=cmp_to_key(c_comp))
     images = [ Image.open(path) for path in filenames]
 
-    images[0].save("./GIFS/heat_2D.gif", save_all=True, append_images=images[1:], duration=100, loop=0)
+    images[0].save("./GIFS/heat_2D_neuman_20.gif", save_all=True, append_images=images[1:], duration=100, loop=0)
 
 
     
